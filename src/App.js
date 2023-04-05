@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import WeatherDetails from './components/WeatherDetails';
 import { getCurrentWeatherData } from './common/api';
+import { useCallback } from 'react';
 
 
 
@@ -20,12 +21,12 @@ function App() {
 
  
 
- function onHandleClick(city){
+ const onHandleClick=useCallback((city)=>{
   console.log("handle Clicked")
       fetchData(city)
       setCity(city)
       setChangecity("")
-  }
+  },[changecity])
   
   
   
