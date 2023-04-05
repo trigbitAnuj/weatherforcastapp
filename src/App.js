@@ -13,7 +13,7 @@ import { getCurrentWeatherData } from './common/api';
 function App() {
   const [forcast,setForcast]=useState(null);
    const[city, setCity] = useState("Chandigarh");
-   const [changecity,SetChangecity]=useState("");
+   const [changecity,setChangecity]=useState("");
 
    console.log(city);
    console.log(forcast)
@@ -23,6 +23,8 @@ function App() {
  function onHandleClick(city){
   console.log("handle Clicked")
       fetchData(city)
+      setCity(city)
+      setChangecity("")
   }
   
   
@@ -41,7 +43,7 @@ function App() {
   useEffect(() => {
     fetchData(city)
     
-  },[city,changecity])
+  },[city])
 
   if(!forcast){
     return 
@@ -59,7 +61,7 @@ function App() {
           type="text"
           placeholder="Search City"
           value={changecity}
-          onChange={(e)=>{SetChangecity(e.target.value)
+          onChange={(e)=>{setChangecity(e.target.value)
           }
 }
         />
