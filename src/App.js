@@ -7,14 +7,14 @@ import { useCallback } from "react";
 import { createContext } from "react";
 
 import UseFetch from "./components/UseFetch";
-import { getCity } from "./common/api";
+
 // import FavouriteCities from "./components/FavouriteCities";
-import { getCitiesFromLocalStorage } from "./utils";
+import { getCitiesFromLocalStorage, getCity } from "./utils";
 
 export const ThemeContext = createContext("dark");
 
 const App = () => {
-  const [city, setCity] = useState(getCity);
+  const [city, setCity] = useState(getCity());
   const [changecity, setChangecity] = useState("");
   const [theme, setTheme] = useState("light");
   const [favouriteCity, setfavouriteCity] = useState(
